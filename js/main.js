@@ -64,6 +64,19 @@ jQuery( document ).ready(function($) {
 
 	var $cHsh = $menutop.find("a[href=\"" + cHsh + "\"]");
 	// console.log($cHsh);
-	$cHsh.size() && $cHsh.trigger("click");
+	if($cHsh.size()) {
+		var $cTarget = $($cHsh.attr("href"));
+		if($cTarget.size() < 1) {
+			// return true;
+		} else if($cTarget.size() > 1) {
+			console && console.log("multiple ref: ", $this);
+		} else {
+			// window.location.hash = $cHsh.attr("href");
+			$menutop.find(".active").removeClass("active");
+			$cHsh.parent().addClass("active");
+			// console.log($cTarget, $cTarget.offset().top);
+			$(window).stop(true, true).scrollTo(($cTarget.offset()).top - ($iconbar.width() < 50 ? 30 : 63), 500);
+		}
+	}
 });   
  

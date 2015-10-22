@@ -17,7 +17,9 @@ html {
 	@include retia() {
 		font-size: 8px;
 	}
-	
+	@include device_320_no-retia() {
+		font-size: 8px;
+	}
 	
 }
 body {
@@ -467,6 +469,10 @@ body {
 			@include retia() {
 				width: 35px;
 			}
+			
+			@include device_320_no-retia() {
+				width: 35px;
+			}
 		}
 	}
 	.title2 {
@@ -491,10 +497,10 @@ body {
 	overflow: hidden;
 
 	
-	padding: 35px 0 0 0;
+	padding: 35px 0 26px 0;
 
 	@include bp(640) {
-		padding: 70px 0 0 0;
+		padding: 70px 0 50px 0;
 	}
 	@include bp(992) {
 		padding: 85px 0 0 0;
@@ -507,7 +513,7 @@ body {
 	}
 	p {
 		@include fontSize(22px);
-		margin-bottom: 50px;
+		margin-bottom: 45px;
 		@include bp(992) {
 			margin-bottom: 95px;
 		}
@@ -520,6 +526,13 @@ body {
 	}
 
 	img {
+
+		@include bp(320) {
+			max-width: 167px;
+		}
+		@include bp(780) {
+			max-width: 100%;
+		}		
 		margin: 0 auto;
 	}
 	
@@ -531,7 +544,7 @@ body {
 		text-align: center;
 		
 		@include bp(320) {
-			margin-bottom: 70px;
+			margin-bottom: 50px;
 		}
 	}
 
@@ -543,13 +556,34 @@ body {
 				@include fontSize(20px);
 				line-height: calculateRem(30px); 
 			}
+			@include device_320_no-retia() {
+				@include fontSize(20px);
+				line-height: calculateRem(30px); 
+			}
 			
 			
 			font-weight: normal;
-			text-transform: none;
-			
+			text-transform: none;			
 			padding: 0;
+			margin-bottom: 25px;
+			margin-top: 11px;
+			@include bp(640) {
+				margin-bottom: 50px;
+				margin-top: 22px;
+			}
+
 		}
+		img {
+
+			@include bp(320) {
+				max-width: 40px;
+			}
+			@include bp(480) {
+				max-width: 100%;
+			}		
+			margin: 0 auto;
+		}
+
 	}
 }
 
@@ -595,7 +629,7 @@ body {
 		li {
 			display: inline-block;			
 			float: left;			
-			padding-right: 8px;
+			
 			width: 40%;
 			&:nth-child(2) {
 				width: 45%;
@@ -606,7 +640,7 @@ body {
 			}
 
 			img {
-				display: block;
+				display: inline-block;
 				
 			}
 
@@ -678,28 +712,49 @@ body {
 		.fa {
 			position: absolute;
 			left: 30px;
-			top: 12.5px;
-			font-size: 20px;
+			top: 0;
+			// line-height: calculateRem(68px);
+			height: 100%;
+		
+			@include fontSize(20px);
 			color: #8f8f8f;
-			@include bp(992) {
-				top: 25px;
+			@include bp(480) {
+				// top: 22px;
+			}
+			&:before {
+				// line-height: 100%;
+				height: 100%;
+				display: inline-block;
+				line-height: 38px;
+				@include bp(480) {
+					line-height: 68px;
+				}
 			}
 		}
 		.form-control {			
 			
 			@include fontSize(20px);
 			box-sizing: border-box;
-			padding: 12px 12px 12px 50px;
+			padding: 12px 12px 12px 30px;
 			border-radius: 0;
 			margin-bottom: 20px;
 			height: 38px;
+			-webkit-box-shadow: none!important;
+			-moz-box-shadow: none!important;
+			box-shadow: none!important;
+			-webkit-appearance: none;
 			@include bp(480) {
 				height: 68px;
+				padding: 12px 12px 12px 50px;
 			}
+			
 		}
 
 		textarea.form-control {
 			height: 200px;
+			@include bp(480) {
+				padding-top:20px;
+			}
 		}
 		.btn-default {
 			background: $primary-color;
@@ -717,19 +772,19 @@ body {
 }
 
 .carriere-block {
-
 	overflow: hidden;
-	padding: 50px 0 0 0;
+	padding: 50px 0 36px 0;
 	background: url(../images/s-bg-car.jpg) center top no-repeat;
 	background-size: cover;
-	@include bp(992) {
-		padding: 100px 0 0 0;
+	@include bp(640) {
+		padding: 100px 0 75px 0;
 	}
 	@include bp(992) {
 		padding: 180px 0;
 	}
 	@include bp(768) {
 		background: url(../images/bg-car.jpg) center top no-repeat;
+		background-size: cover;
 	}
 	@include section-title(#fff,right,'car.png');
 	h2 {
@@ -741,6 +796,10 @@ body {
 	img {
 		margin: 0 auto;
 		height: 151px;
+		clear: both;
+		@include bp(320) {
+			// max-width: 180px;
+		}
 		@include bp(640) {
 			height: auto;
 		}
@@ -772,6 +831,7 @@ body {
 	text-align: center;
 	background: #0d0d0d;
 	padding: 0 ;
+	@include fontSize(18px);
 }
 
 
