@@ -28,6 +28,17 @@
     }
 }
 
+@mixin device_320_no-retia() {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1)      and (max-width: 480px),
+    only screen and (   min--moz-device-pixel-ratio: 1)      and (max-width: 480px),
+    only screen and (     -o-min-device-pixel-ratio: 1)    and (max-width: 480px),
+    only screen and (        min-device-pixel-ratio: 1)      and (max-width: 480px),
+    only screen and (                min-resolution: 72dpi) and (max-width: 480px),
+    only screen and (                min-resolution: 1dppx)  and (max-width: 480px) { 
+        @content; 
+    }
+}
+
 @function calculateRem($size) {
   $remSize: $size / 16px;
   @return #{$remSize}rem;
@@ -102,7 +113,10 @@
             bottom: 8px;
             @include retia() {
                 bottom: 4px;
-            }            
+            }
+            @include device_320_no-retia() {
+                bottom: 4px;
+            }
         }
 
         .fa {           
@@ -114,10 +128,15 @@
             position: absolute;
             bottom: 8px;
             background: url('../images/sprites/'+$img) no-repeat top left;
+	    background-size: cover;
             @include retia() {
                 bottom: 4px;
                 background: url('../images/sprites/'+$img) no-repeat top left / 35px 35px;
             }
+	    @include device_320_no-retia() {
+                bottom: 4px;
+                background: url('../images/sprites/'+$img) no-repeat top left / 35px 35px;
+	    }
         }
         span {
             @include fontSize(50px);
@@ -137,6 +156,9 @@
                 @include retia() {
                      padding-left: 50px;
                 }
+		    @include device_320_no-retia() {
+			padding-left: 50px;
+		    }
             }
 
         }
@@ -155,7 +177,10 @@
                 padding-right: 100px;
                 @include retia() {
                      padding-right: 50px;
-                }                
+                }
+                @include device_320_no-retia() {
+                     padding-right: 50px;
+                }
             }           
         }    
 

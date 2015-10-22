@@ -4,7 +4,7 @@ require 'neat-compass'
 require 'bitters-compass'
 
 # Set this to the root of your project when deployed:
-cache_path = 'e:/.sass-cache'
+cache_path = 'd:/.sass-cache'
 http_path = '../'
 css_dir = 'css'
 sass_dir = 'sass'
