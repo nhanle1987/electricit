@@ -834,8 +834,12 @@ body {
 	@include fontSize(18px);
 }
 
-
-	
-
-
-
+span.notify {
+	color: green;
+	display: inline-block;
+	margin-bottom: 10px;
+	font-size: 1.25rem;
+	.error & {
+		color: red;
+	}
+}

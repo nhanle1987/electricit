@@ -5447,3 +5447,15 @@ body {
   font-size: 18px;
   font-size: 1.125rem;
 }
+
+/* line 837, ../sass/screen.scss */
+span.notify {
+  color: green;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+/* line 842, ../sass/screen.scss */
+.error span.notify {
+  color: red;
+}
