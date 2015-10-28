@@ -21,7 +21,9 @@ jQuery( document ).ready(function($) {
 	var swiperBanner = new Swiper('#primary-banner', {
 		pagination: '#primary-banner__pagination',
 		paginationClickable: true,                
-		autoplayDisableOnInteraction: false            
+		autoplayDisableOnInteraction: false,
+		autoplay: 5000,
+		loop: true
 	});
 
 	$(window).bind("scroll mousewheel DOMMouseScroll", null, function(evt) {
@@ -53,12 +55,17 @@ jQuery( document ).ready(function($) {
 		}
 
 		($(".navbar-toggle").is(":visible")) && $iconbar.trigger("click");
-		window.location.hash = $this.attr("href");
+		// window.location.hash = $this.attr("href");
 		$menutop.find(".active").removeClass("active");
 		$this.parent().addClass("active");
 		// console.log($cTarget, $cTarget.offset().top);
 		$(window).stop(true, true).scrollTo(($cTarget.offset()).top - ($iconbar.width() < 50 ? 30 : 63), 500);
 
+		return false;
+	});
+	$(".navbar-brand").bind("click", null, function(evt) {
+		evt.preventDefault();
+		$(window).stop(true, true).scrollTo(0, 500);
 		return false;
 	});
 

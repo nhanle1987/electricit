@@ -49,6 +49,7 @@ body {
 		z-index: 30;
 		@include bp(768) {
 			margin-left: 0;
+			z-index: 31;
 		}
 		&:before {
             position: absolute;
